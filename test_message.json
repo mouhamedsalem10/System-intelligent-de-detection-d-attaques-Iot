@@ -1,0 +1,21 @@
+{
+    "device_id": "test-device",
+    "features": {
+      "src_port": 52341,
+      "dst_port": 80,
+      "duration": 0.5,
+      "src_bytes": 1200,
+      "dst_bytes": 4500,
+      "missed_bytes": 0,
+      "src_pkts": 8,
+      "src_ip_bytes": 1520,
+      "dst_pkts": 6,
+      "dst_ip_bytes": 4820,
+      "dns_qclass": 0,
+      "dns_qtype": 0,
+      "dns_rcode": 0,
+      "http_request_body_len": 0,
+      "http_response_body_len": 0,
+      "http_status_code": 200
+    }
+  }

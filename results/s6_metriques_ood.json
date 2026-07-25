@@ -1,0 +1,52 @@
+{
+  "scenario": "OOD",
+  "dataset": "eval_ood_dst_ip_balanced.csv",
+  "n_flux": 4000,
+  "accuracy": 0.7248,
+  "precision": 0.6546,
+  "recall": 0.9515,
+  "f1_score": 0.7756,
+  "auc_roc": 0.8421,
+  "TN": 996,
+  "FP": 1004,
+  "FN": 97,
+  "TP": 1903,
+  "par_type": {
+    "backdoor": {
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "ddos": {
+      "recall": 0.7283,
+      "f1": 0.8428
+    },
+    "dos": {
+      "recall": 0.9802,
+      "f1": 0.99
+    },
+    "injection": {
+      "recall": 0.9953,
+      "f1": 0.9976
+    },
+    "mitm": {
+      "recall": 0.75,
+      "f1": 0.8571
+    },
+    "password": {
+      "recall": 0.9767,
+      "f1": 0.9882
+    },
+    "ransomware": {
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "scanning": {
+      "recall": 0.958,
+      "f1": 0.9786
+    },
+    "xss": {
+      "recall": 0.9921,
+      "f1": 0.996
+    }
+  }
+}

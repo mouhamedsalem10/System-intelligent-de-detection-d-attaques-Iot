@@ -1,0 +1,52 @@
+{
+  "scenario": "Bruité ±20%",
+  "dataset": "noisy20.csv",
+  "n_flux": 36595,
+  "accuracy": 0.8074,
+  "precision": 0.8355,
+  "recall": 0.934,
+  "f1_score": 0.882,
+  "auc_roc": 0.6774,
+  "TN": 3197,
+  "FP": 5187,
+  "FN": 1861,
+  "TP": 26350,
+  "par_type": {
+    "backdoor": {
+      "recall": 0.9987,
+      "f1": 0.9993
+    },
+    "ddos": {
+      "recall": 0.6758,
+      "f1": 0.8065
+    },
+    "dos": {
+      "recall": 0.9751,
+      "f1": 0.9874
+    },
+    "injection": {
+      "recall": 0.9812,
+      "f1": 0.9905
+    },
+    "mitm": {
+      "recall": 0.6553,
+      "f1": 0.7918
+    },
+    "password": {
+      "recall": 0.9647,
+      "f1": 0.982
+    },
+    "ransomware": {
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "scanning": {
+      "recall": 0.9745,
+      "f1": 0.9871
+    },
+    "xss": {
+      "recall": 0.9634,
+      "f1": 0.9814
+    }
+  }
+}

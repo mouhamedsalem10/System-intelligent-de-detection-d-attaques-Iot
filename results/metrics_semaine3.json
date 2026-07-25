@@ -1,0 +1,20 @@
+{
+  "week": 3,
+  "date": "2026-07-04",
+  "train_size": 211043,
+  "eval_size": 36595,
+  "features": 16,
+  "normal_train": 50000,
+  "attack_train": 161043,
+  "mitm_before_smote": 1043,
+  "mitm_after_smote": 5000,
+  "correlation_top5": {
+    "dns_qtype": -0.261,
+    "src_port": 0.2262,
+    "dst_port": -0.1566,
+    "dns_qclass": -0.1501,
+    "src_pkts": -0.1021
+  },
+  "scaler": "StandardScaler",
+  "smote_target": 5000
+}

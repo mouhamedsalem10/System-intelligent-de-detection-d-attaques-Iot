@@ -1,0 +1,63 @@
+{
+  "modele": "Pipeline hybride AE+LSTM+CNN+XGBoost",
+  "dataset": "eval_test_full.csv",
+  "n_flux": 36595,
+  "accuracy": 0.9978,
+  "precision": 0.9998,
+  "recall": 0.9973,
+  "f1_score": 0.9985,
+  "auc_roc": 1.0,
+  "confusion_matrix": {
+    "TN": 8378,
+    "FP": 6,
+    "FN": 76,
+    "TP": 28135
+  },
+  "par_type": {
+    "backdoor": {
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": 3742
+    },
+    "ddos": {
+      "recall": 0.9885,
+      "f1": 0.9942,
+      "n": 3997
+    },
+    "dos": {
+      "recall": 0.998,
+      "f1": 0.999,
+      "n": 2934
+    },
+    "injection": {
+      "recall": 0.999,
+      "f1": 0.9995,
+      "n": 3993
+    },
+    "mitm": {
+      "recall": 0.9563,
+      "f1": 0.9777,
+      "n": 206
+    },
+    "password": {
+      "recall": 0.9995,
+      "f1": 0.9997,
+      "n": 3969
+    },
+    "ransomware": {
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": 2748
+    },
+    "scanning": {
+      "recall": 0.9989,
+      "f1": 0.9995,
+      "n": 3723
+    },
+    "xss": {
+      "recall": 0.9983,
+      "f1": 0.9991,
+      "n": 2899
+    }
+  }
+}

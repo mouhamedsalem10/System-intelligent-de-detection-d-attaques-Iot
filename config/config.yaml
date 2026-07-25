@@ -1,0 +1,24 @@
+mqtt:
+  host: mqtt
+  port: 8883
+  username: ""          
+  password: ""
+  tls: true
+  ca_cert: "/app/certs/ca.crt"
+  insecure: false
+  topic_in: "iot/flows"
+  topic_alerts: "iot/alerts"
+  topic_actions: "iot/actions"
+  topic_explanations: "iot/explanations"
+
+inference:
+  model_dir: "models"
+
+prevention:
+  low: 0.3
+  high: 0.8
+
+xai:
+  enabled: true
+  top_k: 5
+  expl_period_ms: 5000

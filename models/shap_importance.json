@@ -1,0 +1,20 @@
+{
+  "feature_importance_mean_abs_shap": {
+    "dst_ip_bytes": 1.3523625135421753,
+    "dst_port": 1.0022798776626587,
+    "src_ip_bytes": 0.7459984421730042,
+    "duration": 0.6866532564163208,
+    "src_pkts": 0.6643350720405579,
+    "dns_qclass": 0.6303714513778687,
+    "dst_pkts": 0.49248260259628296,
+    "dst_bytes": 0.41773903369903564,
+    "dns_qtype": 0.2704002857208252,
+    "src_bytes": 0.23047368228435516,
+    "src_port": 0.12717896699905396,
+    "missed_bytes": 0.03730396553874016,
+    "dns_rcode": 0.01756015047430992,
+    "http_response_body_len": 0.0011635870905593038,
+    "http_status_code": 0.0007313976529985666,
+    "http_request_body_len": 0.0
+  }
+}

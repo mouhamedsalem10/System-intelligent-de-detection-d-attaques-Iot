@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+
+  # Service 1 : Broker MQTT (Mosquitto)
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: mqtt
+    ports:
+      - "1883:1883"   # Port non-TLS (tests locaux)
+      - "8883:8883"   # Port TLS (production)
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./certs:/certs:ro
+    restart: unless-stopped
+
+  # Service 2 : Pipeline de détection IA
+  edge-detector:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: edge-detector
+    depends_on:
+      - mqtt
+    volumes:
+      - ./models:/app/models:ro
+      - ./config:/app/config:ro
+      - ./certs:/app/certs:ro
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
