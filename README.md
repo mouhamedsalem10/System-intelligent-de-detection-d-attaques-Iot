@@ -1,4 +1,4 @@
-# 🛡️ Détection et Prévention des Attaques IoT par Intelligence Artificielle
+#  Détection et Prévention des Attaques IoT par Intelligence Artificielle
 
 > Système intelligent de détection d'attaques réseau IoT en temps réel,
 > basé sur une architecture hybride **AE + LSTM + CNN 1D + XGBoost**,
@@ -6,7 +6,7 @@
 
 ---
 
-## 📊 Résultats
+##  Résultats
 
 | Scénario | F1-Score | Recall | Accuracy |
 |----------|----------|--------|----------|
@@ -18,7 +18,7 @@
 
 ---
 
-## 🏗️ Architecture du système
+##  Architecture du système
 
 ```
 Appareils IoT (caméras, capteurs...)
@@ -51,7 +51,7 @@ Appareils IoT (caméras, capteurs...)
 
 ---
 
-## 🧠 Modèles IA utilisés
+##  Modèles IA utilisés
 
 | Modèle | Rôle | Paramètres | Performance |
 |--------|------|-----------|-------------|
@@ -62,7 +62,7 @@ Appareils IoT (caméras, capteurs...)
 
 ---
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 IoT_Detection_Project/
@@ -118,7 +118,7 @@ IoT_Detection_Project/
 
 ---
 
-## 🚀 Installation et lancement
+##  Installation et lancement
 
 ### Prérequis
 
@@ -180,7 +180,7 @@ python scripts/test_mqtt_dataset.py
 
 ---
 
-## 📡 Topics MQTT
+##  Topics MQTT
 
 | Topic | Direction | Contenu |
 |-------|-----------|---------|
@@ -280,7 +280,7 @@ python scripts/test_mqtt_dataset.py
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 Le projet utilise 2 conteneurs Docker :
 
@@ -303,7 +303,7 @@ docker-compose logs -f edge-detector
 
 ---
 
-## 📚 Dataset
+##  Dataset
 
 **TON-IoT** (Telemetry of Things) — UNSW Australia
 - Moustafa, N. & Slay, J. (2021). IEEE Access, 9, 23862–23879.
