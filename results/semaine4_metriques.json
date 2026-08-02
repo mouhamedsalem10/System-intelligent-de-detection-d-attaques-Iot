@@ -2,16 +2,16 @@
   "modele": "Pipeline hybride AE+LSTM+CNN+XGBoost",
   "dataset": "eval_test_full.csv",
   "n_flux": 36595,
-  "accuracy": 0.9978,
-  "precision": 0.9998,
-  "recall": 0.9973,
-  "f1_score": 0.9985,
-  "auc_roc": 1.0,
+  "accuracy": 0.9969,
+  "precision": 0.9991,
+  "recall": 0.9969,
+  "f1_score": 0.998,
+  "auc_roc": 0.9999,
   "confusion_matrix": {
-    "TN": 8378,
-    "FP": 6,
-    "FN": 76,
-    "TP": 28135
+    "TN": 8358,
+    "FP": 26,
+    "FN": 88,
+    "TP": 28123
   },
   "par_type": {
     "backdoor": {
@@ -20,23 +20,23 @@
       "n": 3742
     },
     "ddos": {
-      "recall": 0.9885,
-      "f1": 0.9942,
+      "recall": 0.988,
+      "f1": 0.994,
       "n": 3997
     },
     "dos": {
-      "recall": 0.998,
-      "f1": 0.999,
+      "recall": 0.9976,
+      "f1": 0.9988,
       "n": 2934
     },
     "injection": {
-      "recall": 0.999,
-      "f1": 0.9995,
+      "recall": 0.9987,
+      "f1": 0.9994,
       "n": 3993
     },
     "mitm": {
-      "recall": 0.9563,
-      "f1": 0.9777,
+      "recall": 0.9272,
+      "f1": 0.9622,
       "n": 206
     },
     "password": {
@@ -45,18 +45,18 @@
       "n": 3969
     },
     "ransomware": {
-      "recall": 1.0,
-      "f1": 1.0,
+      "recall": 0.9996,
+      "f1": 0.9998,
       "n": 2748
     },
     "scanning": {
-      "recall": 0.9989,
-      "f1": 0.9995,
+      "recall": 0.9992,
+      "f1": 0.9996,
       "n": 3723
     },
     "xss": {
-      "recall": 0.9983,
-      "f1": 0.9991,
+      "recall": 0.9976,
+      "f1": 0.9988,
       "n": 2899
     }
   }

@@ -2,51 +2,51 @@
   "scenario": "OOD",
   "dataset": "eval_ood_dst_ip_balanced.csv",
   "n_flux": 4000,
-  "accuracy": 0.7248,
-  "precision": 0.6546,
-  "recall": 0.9515,
-  "f1_score": 0.7756,
-  "auc_roc": 0.8421,
-  "TN": 996,
-  "FP": 1004,
-  "FN": 97,
-  "TP": 1903,
+  "accuracy": 0.9673,
+  "precision": 0.9406,
+  "recall": 0.9975,
+  "f1_score": 0.9682,
+  "auc_roc": 0.9993,
+  "TN": 1874,
+  "FP": 126,
+  "FN": 5,
+  "TP": 1995,
   "par_type": {
     "backdoor": {
       "recall": 1.0,
       "f1": 1.0
     },
     "ddos": {
-      "recall": 0.7283,
-      "f1": 0.8428
+      "recall": 0.9921,
+      "f1": 0.996
     },
     "dos": {
-      "recall": 0.9802,
-      "f1": 0.99
+      "recall": 0.996,
+      "f1": 0.998
     },
     "injection": {
-      "recall": 0.9953,
-      "f1": 0.9976
-    },
-    "mitm": {
-      "recall": 0.75,
-      "f1": 0.8571
-    },
-    "password": {
-      "recall": 0.9767,
-      "f1": 0.9882
-    },
-    "ransomware": {
       "recall": 1.0,
       "f1": 1.0
     },
+    "mitm": {
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "password": {
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "ransomware": {
+      "recall": 0.9961,
+      "f1": 0.998
+    },
     "scanning": {
-      "recall": 0.958,
-      "f1": 0.9786
+      "recall": 0.9962,
+      "f1": 0.9981
     },
     "xss": {
-      "recall": 0.9921,
-      "f1": 0.996
+      "recall": 1.0,
+      "f1": 1.0
     }
   }
 }

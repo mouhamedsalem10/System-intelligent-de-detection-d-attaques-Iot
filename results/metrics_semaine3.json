@@ -1,20 +1,23 @@
 {
   "week": 3,
-  "date": "2026-07-04",
-  "train_size": 211043,
+  "date": "2026-07-27",
+  "train_size_before_cleaning": 211043,
+  "train_size_after_cleaning": 163054,
+  "leaked_rows_removed": 47989,
   "eval_size": 36595,
   "features": 16,
-  "normal_train": 50000,
-  "attack_train": 161043,
-  "mitm_before_smote": 1043,
+  "normal_train": 34229,
+  "attack_train": 128825,
+  "mitm_before_smote": 832,
   "mitm_after_smote": 5000,
   "correlation_top5": {
-    "dns_qtype": -0.261,
-    "src_port": 0.2262,
-    "dst_port": -0.1566,
-    "dns_qclass": -0.1501,
-    "src_pkts": -0.1021
+    "dns_qtype": -0.2845,
+    "src_port": 0.1717,
+    "dns_qclass": -0.165,
+    "src_pkts": -0.1427,
+    "dns_rcode": -0.085
   },
-  "scaler": "StandardScaler",
-  "smote_target": 5000
+  "scaler": "StandardScaler (fit sur train nettoy\u00e9 uniquement)",
+  "smote_target": 5000,
+  "data_leakage_check": "eval_test_full.csv retir\u00e9 de train_test_networks.csv avant tout traitement"
 }

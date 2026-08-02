@@ -1,5 +1,11 @@
 """
-Script d'entraînement AutoEncoder 
+Script d'entraînement AutoEncoder (CORRIGÉ)
+=============================================
+CORRECTIF : utilise désormais data/X_train_scaled.npy et
+data/X_eval_scaled.npy (Semaine 3, nettoyés de toute fuite
+de données avec eval_test_full.csv), déjà normalisés par le
+scaler final. Plus de double-transform, plus d'incohérence
+avec les données brutes de la Semaine 2.
 """
 
 import numpy as np
@@ -13,7 +19,7 @@ import os
 from sklearn.model_selection import train_test_split
 
 print("=" * 70)
-print("AUTOENCODER - EXTRACTION DE CARACTÉRISTIQUES (S3)")
+print("AUTOENCODER - EXTRACTION DE CARACTÉRISTIQUES (S3, corrigé)")
 print("=" * 70)
 
 # ====================== CONFIG ======================
@@ -24,33 +30,25 @@ RESULTS_DIR = "results"
 os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
-# Charger les données déjà préparées en S2
-print("\nChargement des données préparées...")
-X_train = pd.read_csv(f"{DATA_DIR}/X_train.csv")
-X_test = pd.read_csv(f"{DATA_DIR}/X_test.csv")
-y_train = pd.read_csv(f"{DATA_DIR}/y_train.csv")['label']
-y_test = pd.read_csv(f"{DATA_DIR}/y_test.csv")['label']
+# Charger les données de la Semaine 3 (déjà nettoyées + normalisées)
+print("\nChargement des données nettoyées et normalisées (Semaine 3)...")
+X_train_scaled = np.load(f"{DATA_DIR}/X_train_scaled.npy").astype(np.float32)
+X_test_scaled  = np.load(f"{DATA_DIR}/X_eval_scaled.npy").astype(np.float32)
+y_train = pd.Series(np.load(f"{DATA_DIR}/y_train.npy"))
+y_test  = pd.Series(np.load(f"{DATA_DIR}/y_eval.npy"))
 
-print(f"Train shape : {X_train.shape} | Test shape : {X_test.shape}")
-
-# Charger le scaler de la semaine 2
-scaler = joblib.load(f"{MODEL_DIR}/scaler_toniot.joblib")
-print("✅ Scaler chargé avec succès")
-
-# Normaliser
-X_train_scaled = scaler.transform(X_train).astype(np.float32)
-X_test_scaled = scaler.transform(X_test).astype(np.float32)
+print(f"Train shape : {X_train_scaled.shape} | Eval shape : {X_test_scaled.shape}")
 
 # Isoler seulement le trafic normal pour l'entraînement
-X_normal = X_train_scaled[y_train == 0]
+X_normal = X_train_scaled[y_train.values == 0]
 print(f"Trafic normal pour entraînement : {len(X_normal)} flux")
 
-# Split train/validation
+# Split train/validation (sur le trafic normal uniquement)
 X_train_ae, X_val_ae = train_test_split(X_normal, test_size=0.2, random_state=42)
 
 # ====================== ARCHITECTURE ======================
-INPUT_DIM = X_train.shape[1]
-LATENT_DIM = 8   # On commence avec une compression (8 au lieu de 16)
+INPUT_DIM = X_train_scaled.shape[1]
+LATENT_DIM = 8   # compression (8 au lieu de 16)
 
 print(f"\nConstruction de l'AutoEncoder (input={INPUT_DIM} → latent={LATENT_DIM})")
 
@@ -97,11 +95,7 @@ encoder.save(f"{MODEL_DIR}/encoder_ae_toniot.h5")
 autoencoder.save(f"{MODEL_DIR}/autoencoder_full.h5")
 print(f"\nModèles sauvegardés dans {MODEL_DIR}/")
 
-
-
-
 print("\n✅ AutoEncoder terminé avec succès !")
-
 
 print("\nÉvaluation de l'AutoEncoder...")
 
@@ -112,9 +106,9 @@ mse_train = np.mean(np.power(X_train_scaled - reconstructions_train, 2), axis=1)
 reconstructions_test = autoencoder.predict(X_test_scaled, verbose=0)
 mse_test = np.mean(np.power(X_test_scaled - reconstructions_test, 2), axis=1)
 
-# Erreurs par classe
-mse_normal = mse_train[y_train == 0]
-mse_attaque = mse_train[y_train == 1]
+# Erreurs par classe (sur le train)
+mse_normal = mse_train[y_train.values == 0]
+mse_attaque = mse_train[y_train.values == 1]
 
 print(f"\nErreur de reconstruction (MSE) :")
 print(f"  Normal   : moyenne = {mse_normal.mean():.5f}")
@@ -122,7 +116,7 @@ print(f"  Attaque  : moyenne = {mse_attaque.mean():.5f}")
 
 # Graphiques
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-fig.suptitle('Résultats AutoEncoder - Semaine 3', fontsize=14)
+fig.suptitle('Résultats AutoEncoder - Semaine 3 (corrigé, sans fuite)', fontsize=14)
 
 # Loss curve
 axes[0].plot(history.history['loss'], label='Train Loss')
@@ -146,4 +140,4 @@ plt.tight_layout()
 plt.savefig(f"{RESULTS_DIR}/autoencoder_results.png", dpi=150)
 print(f"✅ Graphique sauvegardé : {RESULTS_DIR}/autoencoder_results.png")
 
-print("\n✅ AutoEncoder terminé avec succès !")
+print("\n✅ AutoEncoder terminé avec succès (sans fuite de données) !")
